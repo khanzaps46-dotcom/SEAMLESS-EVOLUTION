@@ -210,7 +210,7 @@ export default function ScrollStory() {
                 {index === 0 && (
                   <div className="supporting-copy">
                     <p className="subtitle" data-support>Semua dimulai dari pikiran.</p>
-                    <a className="cta" data-support href="#explore">Start Learning</a>
+                    <a className="cta" data-support href="/3d-printing">Start Learning</a>
                   </div>
                 )}
               </article>

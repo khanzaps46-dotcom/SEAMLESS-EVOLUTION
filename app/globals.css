@@ -100,14 +100,12 @@ a { color: inherit; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; padding-bottom: 11px; border-bottom: 1px solid var(--rule); }
 .section-note { max-width: 270px; margin: 0; color: var(--ink); font-size: var(--font-body-size); line-height: 1.6; }
 .feature-grid { display: grid; grid-template-columns: minmax(220px, .36fr) minmax(0, .64fr); gap: 4.5vw; align-items: start; padding-top: 24px; }
-.feature-image { position: relative; grid-column: 2; grid-row: 1 / span 2; min-height: 0; aspect-ratio: 1.5; overflow: hidden; background: #242424; }
+.feature-image { position: relative; grid-column: 2; grid-row: 1; min-height: 0; aspect-ratio: 1.5; overflow: hidden; background: #242424; }
 .feature-image img { object-position: 72% 48%; filter: grayscale(1) contrast(1.07); }
 .feature-image figcaption { position: absolute; bottom: 15px; left: 17px; color: white; font-size: 9px; letter-spacing: .12em; text-shadow: 0 1px 8px #0009; }
 .feature-copy { grid-column: 1; grid-row: 1; max-width: 410px; padding-top: 20px; }
 .feature-copy h2 { margin: 19px 0 22px; font-family: var(--display-font); font-size: var(--font-section-title-size); font-weight: 500; letter-spacing: -.045em; line-height: .98; }
 .feature-copy > p:not(.editorial-kicker) { margin-bottom: 28px; }
-.feature-aside { display: grid; grid-template-columns: 1fr; gap: 12px; grid-column: 1; grid-row: 2; margin: 28px 0 0; padding-top: 14px; width: 100%; border-top: 1px solid var(--rule); color: var(--ink); font-size: var(--font-label-size); letter-spacing: .08em; text-transform: uppercase; }
-.feature-aside p { max-width: 220px; margin: 0; color: var(--ink); font-family: var(--display-font); font-size: var(--font-body-size); letter-spacing: -.02em; line-height: 1.25; text-transform: none; }
 .editorial-about { position: relative; padding: clamp(150px, 20vw, 250px) 12vw clamp(150px, 18vw, 220px); background: #fff; text-align: center; }
 .about-meta { position: absolute; top: 28px; right: 1.7vw; left: 1.7vw; padding-bottom: 0; border: 0; color: var(--ink); font-size: var(--font-label-size); letter-spacing: .13em; text-transform: uppercase; }
 .about-content { display: flex; flex-direction: column; align-items: center; gap: 36px; padding-top: 0; }
@@ -235,14 +233,22 @@ a { color: inherit; }
 .discussion-filters { display: flex; gap: 12px; }
 .discussion-filters button { min-width: 170px; min-height: 45px; padding: 0 18px; border: 1px solid #cbd2d8; background: #cbd2d8; color: #202421; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
 .discussion-filters button.is-selected { border-color: #202421; background: #202421; color: #fff; }
-.discussion-form { display: flex; align-items: end; gap: 16px; padding: 22px 0; border-bottom: 1px solid #a9aaa4; }
-.discussion-form label { flex: 0 0 100%; margin: 0 0 8px; }
-.discussion-form input { flex: 1; }
+.discussion-form { display: flex; flex-direction: column; gap: 10px; padding: 22px 0 28px; border-bottom: 1px solid #a9aaa4; }
+.discussion-form-heading, .discussion-form-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.discussion-form-heading { margin-bottom: 7px; }
+.discussion-form label { margin: 8px 0 0; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.discussion-form input, .discussion-form textarea { width: 100%; max-width: 760px; padding: 13px; border: 1px solid #858985; border-radius: 0; background: transparent; color: #202421; font: inherit; }
+.discussion-form input { min-height: 48px; }
+.discussion-form textarea { min-height: 130px; resize: vertical; line-height: 1.55; }
+.discussion-form input:focus, .discussion-form textarea:focus { outline: 2px solid #46a3dc; outline-offset: 2px; }
+.discussion-form-footer { max-width: 760px; margin-top: 6px; color: #5e635e; font-size: 12px; }
+.discussion-cancel { padding: 6px 0; border: 0; background: transparent; color: inherit; font: inherit; font-size: 12px; text-decoration: underline; cursor: pointer; }
 .topic-row { display: grid; grid-template-columns: 140px minmax(0, 1fr) 120px 32px; align-items: center; gap: 24px; min-height: 142px; padding: 22px 0; border-bottom: 1px solid #a9aaa4; }
 .topic-index { display: flex; flex-direction: column; gap: 14px; }
 .topic-index > span:first-child { color: #777b77; font-size: 12px; }
 .topic-copy h2 { margin: 0 0 10px; font-size: clamp(20px, 2.5vw, 30px); font-weight: 500; letter-spacing: -.025em; }
 .topic-copy > p { margin: 0; color: #5e635e; font-size: 12px; }
+.topic-copy > .topic-body { margin: 0 0 12px; color: #202421; font-size: 14px; line-height: 1.55; }
 .topic-copy > p span { padding: 0 6px; }
 .topic-tag { justify-self: end; min-width: 100px; padding: 12px; background: #cbd2d8; font-size: 12px; text-align: center; }
 .topic-open { border: 0; background: transparent; color: inherit; font-size: 21px; cursor: pointer; }
@@ -281,9 +287,7 @@ a { color: inherit; }
   .feature-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
   .feature-image { grid-column: 1; grid-row: 2; min-height: 0; aspect-ratio: 1.25; }
   .feature-copy { grid-column: 1; grid-row: 1; padding-top: 10px; }
-  .feature-aside { grid-column: 1; grid-row: 3; }
   .feature-copy h2 { max-width: 430px; }
-  .feature-aside { width: 100%; grid-template-columns: .8fr 1.2fr; gap: 12px; margin-top: 32px; }
   .editorial-about { padding: 125px 6%; }
   .about-meta { font-size: 8px; }
   .about-content { gap: 28px; padding-top: 0; }
@@ -338,9 +342,7 @@ a { color: inherit; }
   .discussion-toolbar { align-items: stretch; flex-direction: column; }
   .discussion-filters { width: 100%; }
   .discussion-filters button { min-width: 0; flex: 1; padding-inline: 8px; }
-  .discussion-form { align-items: stretch; flex-wrap: wrap; }
-  .discussion-form label { flex: 0 0 100%; }
-  .discussion-form input { flex: 1 1 100%; }
+  .discussion-form-footer { align-items: flex-end; }
   .topic-row { grid-template-columns: 40px minmax(0, 1fr) 26px; gap: 12px; min-height: 124px; }
   .topic-index { grid-column: 1; grid-row: 1 / span 2; }
   .topic-copy { grid-column: 2; }

@@ -116,10 +116,6 @@ export default function EditorialHome() {
             <a className="text-link" href="#selected-work">Baca cerita <span aria-hidden="true">↗</span></a>
           </article>
         </div>
-        <div className="feature-aside" data-editorial-reveal>
-          <span>Catatan studio / 001</span>
-          <p>Rasa ingin tahu adalah alat pertama yang kami gunakan.</p>
-        </div>
       </section>
 
       <section className="editorial-about" id="about" aria-labelledby="about-title">
