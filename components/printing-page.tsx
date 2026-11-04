@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContentPage, PageIntro } from "@/components/content-page";
+import ArrowIcon from "@/components/arrow-icon";
 
 const stages = [
   ["01", "3D Model"], ["02", "Slicing"], ["03", "Printing"], ["04", "Layer by layer"], ["05", "Final product"],
@@ -37,7 +38,7 @@ export default function PrintingPage() {
               <span className="process-number">{number}</span>
               <div className="process-visual"><Image src={index === 4 ? "/assets/bg-products.png" : index < 2 ? "/assets/bg-mug.png" : "/assets/bg-printer.png"} alt="" fill sizes="(max-width: 760px) 40vw, 16vw" /></div>
               <p>{label}</p>
-              {index < stages.length - 1 && <span className="process-arrow" aria-hidden="true">→</span>}
+              {index < stages.length - 1 && <span className="process-arrow"><ArrowIcon direction="right" /></span>}
             </div>
           ))}
         </div>
@@ -57,13 +58,13 @@ export default function PrintingPage() {
 
       <section className="materials-section page-rule-section">
         <figure><Image src="/assets/bg-mug.png" alt="Objek dengan tekstur hasil cetak 3D" fill sizes="(max-width: 760px) 100vw, 45vw" /></figure>
-        <div><p className="editorial-kicker">Material study</p><h2>Material memberi ide karakter.</h2><p>PLA, PETG, resin, dan material lain membawa tekstur, kekuatan, serta hasil akhir yang berbeda. Pilihan yang tepat dimulai dari tujuan objek yang ingin dibuat.</p><Link className="text-link" href="/opportunities">Lihat peluang material <span aria-hidden="true">↗</span></Link></div>
+        <div><p className="editorial-kicker">Material study</p><h2>Material memberi ide karakter.</h2><p>PLA, PETG, resin, dan material lain membawa tekstur, kekuatan, serta hasil akhir yang berbeda. Pilihan yang tepat dimulai dari tujuan objek yang ingin dibuat.</p><Link className="text-link" href="/opportunities">Lihat peluang material <ArrowIcon /></Link></div>
       </section>
 
       <section className="applications-section">
         <p className="editorial-kicker">Made for many ideas</p>
         <h2>Applications</h2>
-        <div className="application-links"><Link href="/create"><span>01</span><strong>Prototype & product design</strong><span aria-hidden="true">↗</span></Link><Link href="/opportunities"><span>02</span><strong>Creative business</strong><span aria-hidden="true">↗</span></Link></div>
+        <div className="application-links"><Link href="/create"><span>01</span><strong>Prototype & product design</strong><ArrowIcon /></Link><Link href="/opportunities"><span>02</span><strong>Creative business</strong><ArrowIcon /></Link></div>
       </section>
     </ContentPage>
   );

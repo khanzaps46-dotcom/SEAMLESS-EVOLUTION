@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ArrowIcon from "@/components/arrow-icon";
 
 const stories = [
   {
@@ -113,7 +114,7 @@ export default function EditorialHome() {
             <p className="editorial-kicker">Bentuk / Eksperimen</p>
             <h2 id="feature-title">Dari garis pertama, lahir kemungkinan baru.</h2>
             <p>Setiap objek dimulai dari pertanyaan sederhana. Kami mengolahnya lewat desain, material, dan teknologi hingga menjadi sesuatu yang punya tempat dalam keseharian.</p>
-            <a className="text-link" href="#selected-work">Baca cerita <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="#selected-work">Baca cerita <ArrowIcon /></a>
           </article>
         </div>
       </section>
@@ -125,7 +126,7 @@ export default function EditorialHome() {
           <div className="about-detail">
             <span className="about-mark" aria-hidden="true">SE.</span>
             <p>Seamless Evolution menghubungkan desain dan teknologi 3D agar lebih banyak orang dapat belajar, bereksperimen, dan membangun sesuatu miliknya sendiri.</p>
-            <a className="text-link" href="#selected-work">Kenali cara kami berkarya <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="#selected-work">Kenali cara kami berkarya <ArrowIcon /></a>
           </div>
         </div>
       </section>
@@ -143,7 +144,7 @@ export default function EditorialHome() {
                   <Image src={story.image} alt={story.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-editorial-parallax />
                   <figcaption>{story.number} / {story.category}</figcaption>
                 </figure>
-                <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p><span className="tile-arrow" aria-hidden="true">↗</span></div>
+                <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p><ArrowIcon className="tile-arrow" /></div>
               </a>
             </article>
           ))}
@@ -151,12 +152,12 @@ export default function EditorialHome() {
       </section>
 
       <footer className="editorial-footer" id="contact">
-        <div className="footer-topline"><a className="footer-brand" href="#top">SE<span>.</span></a><span>Desain untuk ide yang terus berkembang.</span><a className="back-top" href="#top">Kembali ke atas ↑</a></div>
+        <div className="footer-topline"><a className="footer-brand" href="#top">SE<span>.</span></a></div>
         <div className="footer-main">
           <div><p className="editorial-kicker">Mari mulai sesuatu</p><a className="footer-email" href="mailto:hello@seamlessevolution.id">Punya ide?<br /><em>Hubungi kami.</em></a></div>
-          <div className="footer-links"><div><span>Jelajahi</span><a href="#opportunities">Opportunities</a><a href="#selected-work">Create</a><a href="#journal">Stories</a><a href="#about">About</a></div><div><span>Ikuti</span><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div>
+          <div className="footer-links"><div><span>Jelajahi</span><a href="#opportunities">Opportunities</a><a href="#selected-work">Create</a><a href="#journal">Stories</a><a href="#about">About</a></div><div><span>Ikuti</span><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram <ArrowIcon /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a></div></div>
         </div>
-        <div className="footer-bottom"><span>© 2026 Seamless Evolution</span><span>Dirancang untuk terus berevolusi.</span><span>Indonesia</span></div>
+        <div className="footer-bottom"><span className="footer-signature">Seamless Evolution</span><span className="footer-copyright">© 2026, All rights reserved</span></div>
       </footer>
     </div>
   );

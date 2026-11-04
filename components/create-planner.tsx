@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ContentPage, PageIntro } from "@/components/content-page";
+import ArrowIcon from "@/components/arrow-icon";
 
 const printerRates: Record<string, number> = { "FDM printer": 8000, "Resin printer": 12000, "SLS service": 18000 };
 const materialRates: Record<string, number> = { PLA: 35, PETG: 48, Resin: 110 };
@@ -32,7 +33,7 @@ export default function CreatePlanner() {
           </section>
           <section className="create-estimate page-rule-section">
             <div className="create-step-content"><p className="editorial-kicker">Step 03</p><h2>Estimate your cost</h2><p>Masukkan perkiraan waktu dan berat material. Hasil ini adalah estimasi awal sebelum biaya finishing dan pengiriman.</p></div>
-            <div className="estimate-controls"><label htmlFor="print-hours">Print time <span>hours</span></label><input id="print-hours" type="number" min="1" max="100" value={hours} onChange={(event) => { setHours(Math.max(1, Number(event.target.value))); setCost(null); }} /><label htmlFor="material-grams">Material <span>grams</span></label><input id="material-grams" type="number" min="1" max="5000" value={grams} onChange={(event) => { setGrams(Math.max(1, Number(event.target.value))); setCost(null); }} /><button className="primary-action" onClick={calculate}>Calculate estimate <span aria-hidden="true">↗</span></button></div>
+            <div className="estimate-controls"><label htmlFor="print-hours">Print time <span>hours</span></label><input id="print-hours" type="number" min="1" max="100" value={hours} onChange={(event) => { setHours(Math.max(1, Number(event.target.value))); setCost(null); }} /><label htmlFor="material-grams">Material <span>grams</span></label><input id="material-grams" type="number" min="1" max="5000" value={grams} onChange={(event) => { setGrams(Math.max(1, Number(event.target.value))); setCost(null); }} /><button className="primary-action" onClick={calculate}>Calculate estimate <ArrowIcon /></button></div>
           </section>
         </div>
       </div>

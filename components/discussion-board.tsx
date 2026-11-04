@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { ContentPage, PageIntro } from "@/components/content-page";
+import ArrowIcon from "@/components/arrow-icon";
 
 type Topic = { title: string; body: string; category: string; replies: number; time: string; question: boolean };
 
@@ -45,7 +46,7 @@ export default function DiscussionBoard() {
         <input id="discussion-title" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Contoh: Material apa yang cocok untuk ...?" maxLength={140} required />
         <label htmlFor="discussion-body">Question details</label>
         <textarea id="discussion-body" value={body} onChange={(event) => setBody(event.target.value)} placeholder="Jelaskan konteks dan detail yang akan membantu komunitas menjawab..." rows={5} maxLength={2000} required />
-        <div className="discussion-form-footer"><span>{body.length}/2000</span><button className="primary-action" type="submit">Publish question<span aria-hidden="true">↗</span></button></div>
+        <div className="discussion-form-footer"><span>{body.length}/2000</span><button className="primary-action" type="submit">Publish question<ArrowIcon /></button></div>
       </form>}
       <section className="topic-list" aria-label="Daftar diskusi">
         {visibleTopics.map((topic, index) => (
@@ -53,12 +54,12 @@ export default function DiscussionBoard() {
             <div className="topic-index"><span>0{index + 1}</span><span className="editorial-kicker">{topic.category}</span></div>
             <div className="topic-copy"><h2>{topic.title}</h2><p className="topic-body">{topic.body}</p><p>{topic.time} <span>·</span> {topic.replies} replies</p></div>
             <span className="topic-tag">{topic.question ? "Question" : "Topic"}</span>
-            <button className="topic-open" aria-label={`Open topic: ${topic.title}`} onClick={() => setTitle(topic.title)}>↗</button>
+            <button className="topic-open" aria-label={`Open topic: ${topic.title}`} onClick={() => setTitle(topic.title)}><ArrowIcon /></button>
           </article>
         ))}
         {visibleTopics.length === 0 && <p className="empty-topics">Belum ada pertanyaan. Mulai diskusi pertama.</p>}
       </section>
-      <section className="share-experience"><div><p className="editorial-kicker">Community discussion</p><h2>Satu pertanyaan bisa membuka kemungkinan baru.</h2></div><button className="primary-action" onClick={openQuestionComposer}>Ask a question <span aria-hidden="true">↗</span></button></section>
+      <section className="share-experience"><div><p className="editorial-kicker">Community discussion</p><h2>Satu pertanyaan bisa membuka kemungkinan baru.</h2></div><button className="primary-action" onClick={openQuestionComposer}>Ask a question <ArrowIcon /></button></section>
     </ContentPage>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import EditorialHome from "@/components/editorial-home";
@@ -16,6 +16,21 @@ const scenes = [
 export default function ScrollStory() {
   const root = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const intro = root.current;
+    if (!intro) return;
+
+    const updateVisibility = () => setShowBackToTop(intro.getBoundingClientRect().bottom <= 0);
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     if (!root.current || !stage.current) return;
@@ -229,6 +244,7 @@ export default function ScrollStory() {
 
         <EditorialHome />
       </main>
+      {showBackToTop && <a className="back-top" href="#top" aria-label="Kembali ke header content" title="Kembali ke header content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" /></svg></a>}
     </>
   );
 }

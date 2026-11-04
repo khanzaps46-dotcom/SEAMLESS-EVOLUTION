@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContentPage, PageIntro } from "@/components/content-page";
+import ArrowIcon from "@/components/arrow-icon";
 
 const opportunities = [
   { number: "01", title: "Creative industries", text: "Bawa ilustrasi, karakter, dan eksplorasi bentuk menjadi objek yang bisa disentuh.", image: "/assets/bg-mug.png", tag: "DESIGN / OBJECTS" },
@@ -21,7 +22,7 @@ export default function OpportunitiesPage() {
           <article className="opportunity-card" key={item.number}>
             <div className="opportunity-index"><span>{item.number}</span><span className="editorial-kicker">{item.tag}</span></div>
             <figure><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 86vw, 32vw" /></figure>
-            <div className="opportunity-copy"><h2>{item.title}</h2><p>{item.text}</p><Link href={item.number === "03" ? "/discussion" : "/create"} className="text-link">Explore this path <span aria-hidden="true">↗</span></Link></div>
+            <div className="opportunity-copy"><h2>{item.title}</h2><p>{item.text}</p><Link href={item.number === "03" ? "/discussion" : "/create"} className="text-link">Explore this path <ArrowIcon /></Link></div>
           </article>
         ))}
       </section>
