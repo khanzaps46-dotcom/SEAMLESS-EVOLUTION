@@ -12,28 +12,28 @@ const stories = [
     category: "MATERIAL STUDY",
     title: "Sebuah gagasan, banyak kemungkinan.",
     description: "Eksperimen kecil yang membuka jalan bagi bentuk dan fungsi baru.",
-    image: "/assets/bg-printer.png",
-    alt: "Detail proses pencetakan 3D",
+    image: "/assets/story-material-study.jpg",
+    alt: "Gulungan filamen merah, putih, dan hijau",
     href: "/3d-printing",
     className: "story-tile story-tile--wide",
   },
   {
     number: "02",
     category: "OBJECTS",
-    title: "Bentuk yang punya cerita.",
-    description: "Dari sketsa digital menjadi objek yang bisa disentuh.",
-    image: "/assets/bg-mug.png",
-    alt: "Objek mug hasil cetak 3D",
+    title: "Keberanian untuk memulai.",
+    description: "Wujudkan produk impianmu.",
+    image: "/assets/story-made-to-grow.png",
+    alt: "Vas beralur hasil cetak 3D",
     href: "/create",
     className: "story-tile story-tile--narrow",
   },
   {
     number: "03",
     category: "MADE TO GROW",
-    title: "Ruang untuk ide berikutnya.",
+    title: "Ruang untuk berkembang.",
     description: "Membangun produk, keterampilan, dan kemungkinan bersama.",
-    image: "/assets/bg-products.png",
-    alt: "Rangkaian prototipe produk cetak 3D",
+    image: "/assets/story-objects.png",
+    alt: "Nozzle printer 3D",
     href: "/opportunities",
     className: "story-tile story-tile--offset",
   },
@@ -107,14 +107,12 @@ export default function EditorialHome() {
         </div>
         <div className="feature-grid">
           <figure className="feature-image" data-editorial-image>
-            <Image src="/assets/bg-mug.png" alt="Mug bertekstur yang dibuat dengan printer 3D" fill sizes="(max-width: 760px) 100vw, 58vw" data-editorial-parallax />
-            <figcaption>STUDI BENTUK · 2026</figcaption>
+            <Image src="/assets/story-feature.png" alt="Garis filamen biru di atas permukaan bertekstur" fill sizes="(max-width: 760px) 100vw, 58vw" data-editorial-parallax />
           </figure>
           <article className="feature-copy" data-editorial-reveal>
             <p className="editorial-kicker">Bentuk / Eksperimen</p>
             <h2 id="feature-title">Dari garis pertama, lahir kemungkinan baru.</h2>
             <p>Setiap objek dimulai dari pertanyaan sederhana. Kami mengolahnya lewat desain, material, dan teknologi hingga menjadi sesuatu yang punya tempat dalam keseharian.</p>
-            <a className="text-link" href="#selected-work">Baca cerita <ArrowIcon /></a>
           </article>
         </div>
       </section>
@@ -126,7 +124,6 @@ export default function EditorialHome() {
           <div className="about-detail">
             <span className="about-mark" aria-hidden="true">SE.</span>
             <p>Seamless Evolution menghubungkan desain dan teknologi 3D agar lebih banyak orang dapat belajar, bereksperimen, dan membangun sesuatu miliknya sendiri.</p>
-            <a className="text-link" href="#selected-work">Kenali cara kami berkarya <ArrowIcon /></a>
           </div>
         </div>
       </section>
@@ -144,7 +141,7 @@ export default function EditorialHome() {
                   <Image src={story.image} alt={story.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-editorial-parallax />
                   <figcaption>{story.number} / {story.category}</figcaption>
                 </figure>
-                <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p><ArrowIcon className="tile-arrow" /></div>
+                <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p></div>
               </a>
             </article>
           ))}

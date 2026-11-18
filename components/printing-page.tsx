@@ -25,7 +25,7 @@ export default function PrintingPage() {
           <p>3D printing membuat objek dengan menambahkan material secara bertahap berdasarkan model digital. Proses ini memberi ruang untuk mencoba bentuk, ukuran, dan fungsi dengan lebih cepat.</p>
         </div>
         <figure className="printing-hero-image">
-          <Image src="/assets/bg-printer.png" alt="Kepala printer 3D sedang membentuk objek" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          <Image src="/assets/printing-header.png" alt="Kepala printer 3D sedang membentuk objek" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
           <figcaption>FROM DIGITAL MODEL TO PHYSICAL FORM</figcaption>
         </figure>
       </section>
@@ -57,7 +57,7 @@ export default function PrintingPage() {
       </section>
 
       <section className="materials-section page-rule-section">
-        <figure><Image src="/assets/bg-mug.png" alt="Objek dengan tekstur hasil cetak 3D" fill sizes="(max-width: 760px) 100vw, 45vw" /></figure>
+        <figure><Image src="/assets/material-study.png" alt="Kotak kecil hasil cetak 3D" fill sizes="(max-width: 760px) 100vw, 45vw" /></figure>
         <div><p className="editorial-kicker">Material study</p><h2>Material memberi ide karakter.</h2><p>PLA, PETG, resin, dan material lain membawa tekstur, kekuatan, serta hasil akhir yang berbeda. Pilihan yang tepat dimulai dari tujuan objek yang ingin dibuat.</p><Link className="text-link" href="/opportunities">Lihat peluang material <ArrowIcon /></Link></div>
       </section>
 

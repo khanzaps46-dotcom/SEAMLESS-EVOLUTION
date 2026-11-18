@@ -4,9 +4,9 @@ import { ContentPage, PageIntro } from "@/components/content-page";
 import ArrowIcon from "@/components/arrow-icon";
 
 const opportunities = [
-  { number: "01", title: "Creative industries", text: "Bawa ilustrasi, karakter, dan eksplorasi bentuk menjadi objek yang bisa disentuh.", image: "/assets/bg-mug.png", tag: "DESIGN / OBJECTS" },
-  { number: "02", title: "Business ideas", text: "Uji produk dalam skala kecil, buat pesanan khusus, dan temukan pasar dari ide yang unik.", image: "/assets/bg-products.png", tag: "PRODUCT / BUSINESS" },
-  { number: "03", title: "Case studies", text: "Pelajari bagaimana proses prototyping membantu ide berkembang menjadi solusi nyata.", image: "/assets/bg-printer.png", tag: "PROCESS / STORIES" },
+  { number: "01", title: "Creative industries", text: "Bawa ilustrasi, karakter, dan eksplorasi bentuk menjadi objek yang bisa disentuh.", image: "/assets/opportunity-model.png", tag: "DESIGN / OBJECTS" },
+  { number: "02", title: "Business ideas", text: "Uji produk dalam skala kecil, buat pesanan khusus, dan temukan pasar dari ide yang unik.", image: "/assets/opportunity-lantern.png", tag: "PRODUCT / BUSINESS" },
+  { number: "03", title: "Case studies", text: "Pelajari bagaimana proses prototyping membantu ide berkembang menjadi solusi nyata.", image: "/assets/opportunity-print.png", tag: "PROCESS / STORIES" },
 ];
 
 export default function OpportunitiesPage() {
