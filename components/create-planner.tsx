@@ -25,7 +25,7 @@ export default function CreatePlanner() {
         <div className="create-step-list">
           <section className="create-step-card page-rule-section">
             <div className="create-step-content"><p className="editorial-kicker">Step 01</p><h2>Choose your printer</h2><p>Pilih jenis proses yang paling dekat dengan kebutuhan objekmu.</p><label htmlFor="printer-choice">Printer type</label><select id="printer-choice" value={printer} onChange={(event) => { setPrinter(event.target.value); setCost(null); }}><option>FDM printer</option><option>Resin printer</option><option>SLS service</option></select></div>
-            <figure><Image src="/assets/create-printer.jpg" alt="Printer 3D Bambu Lab sedang mencetak" fill sizes="(max-width: 760px) 100vw, 42vw" /></figure>
+            <figure><Image src="/assets/create-printer.jpeg" alt="Printer 3D Bambu Lab sedang mencetak" fill sizes="(max-width: 760px) 100vw, 42vw" /></figure>
           </section>
           <section className="create-step-card create-step-card-reverse page-rule-section">
             <div className="create-step-content"><p className="editorial-kicker">Step 02</p><h2>Choose your material</h2><p>Sesuaikan karakter material dengan fungsi dan hasil akhir yang kamu inginkan.</p><label htmlFor="material-choice">Material</label><select id="material-choice" value={material} onChange={(event) => { setMaterial(event.target.value); setCost(null); }}><option>PLA</option><option>PETG</option><option>Resin</option></select></div>

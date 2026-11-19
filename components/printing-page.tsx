@@ -1,10 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { ContentPage, PageIntro } from "@/components/content-page";
 import ArrowIcon from "@/components/arrow-icon";
 
 const stages = [
-  ["01", "3D Model"], ["02", "Slicing"], ["03", "Printing"], ["04", "Layer by layer"], ["05", "Final product"],
+  { number: "01", label: "3D Model", image: "/assets/process-3d-model.png", description: "Proses dimulai dengan model digital yang menentukan bentuk, ukuran, dan detail objek sebelum dicetak." },
+  { number: "02", label: "Slicing", image: "/assets/process-slicing.png", description: "Perangkat lunak slicing membagi model menjadi lapisan dan mengubahnya menjadi instruksi yang dibaca printer." },
+  { number: "03", label: "Printing", image: "/assets/process-printing.png", description: "Printer mengikuti jalur cetak dan mengeluarkan material untuk mulai membentuk objek." },
+  { number: "04", label: "Layer by layer", image: "/assets/process-layer-by-layer.png", description: "Material ditambahkan lapis demi lapis. Setiap lapisan menyatu untuk membangun tinggi dan detail objek." },
+  { number: "05", label: "Final Product", image: "/assets/process-final-product.png", description: "Setelah pencetakan selesai, objek siap diperiksa dan dapat dilanjutkan ke tahap finishing bila diperlukan." },
 ];
 
 const types = [
@@ -14,6 +21,8 @@ const types = [
 ];
 
 export default function PrintingPage() {
+  const [activeStage, setActiveStage] = useState<(typeof stages)[number] | null>(null);
+
   return (
     <ContentPage className="printing-page">
       <PageIntro index="02 / 05 · 3D PRINTING" title="What is 3D Printing?" description="Dari model digital ke objek nyata, lapis demi lapis. Kenali proses yang membuka cara baru untuk merancang dan membuat." />
@@ -33,22 +42,48 @@ export default function PrintingPage() {
       <section className="process-section page-rule-section">
         <div className="section-heading"><p className="editorial-kicker">The process</p><p className="section-note">Lima tahap dari ide awal hingga hasil akhir.</p></div>
         <div className="process-steps">
-          {stages.map(([number, label], index) => (
-            <div className="process-step" key={number}>
-              <span className="process-number">{number}</span>
-              <div className="process-visual"><Image src={index === 4 ? "/assets/bg-products.png" : index < 2 ? "/assets/bg-mug.png" : "/assets/bg-printer.png"} alt="" fill sizes="(max-width: 760px) 40vw, 16vw" /></div>
-              <p>{label}</p>
-              {index < stages.length - 1 && <span className="process-arrow"><ArrowIcon direction="right" /></span>}
+          {stages.map((stage, index) => (
+            <div className="process-step" key={stage.number}>
+              <span className="process-number">{stage.number}</span>
+              <div className="process-visual">
+                <Image src={stage.image} alt={`${stage.label} stage of the 3D printing process`} fill sizes="(max-width: 760px) 40vw, 16vw" />
+                <button className="process-open" type="button" aria-label={`Lihat detail tahap ${stage.label}`} onClick={() => setActiveStage(stage)} />
+              </div>
+              <p>{stage.label}</p>
+              {index < stages.length - 1 && <span className="process-arrow" aria-hidden="true"><ArrowIcon direction="right" /></span>}
             </div>
           ))}
         </div>
       </section>
 
+      {activeStage && (
+        <div className="process-modal-backdrop" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) setActiveStage(null); }}>
+          <section className="process-modal" role="dialog" aria-modal="true" aria-labelledby="process-modal-title" onKeyDown={(event) => { if (event.key === "Escape") setActiveStage(null); }}>
+            <button className="process-modal-close" type="button" aria-label="Tutup detail" autoFocus onClick={() => setActiveStage(null)}>×</button>
+            <div className="process-modal-image"><Image src={activeStage.image} alt={`${activeStage.label} pada proses 3D printing`} fill sizes="(max-width: 700px) 90vw, 55vw" /></div>
+            <div className="process-modal-copy"><p className="editorial-kicker">The process / {activeStage.number}</p><h2 id="process-modal-title">{activeStage.label}</h2><p>{activeStage.description}</p></div>
+          </section>
+        </div>
+      )}
+
       <section className="types-section page-rule-section">
         <div className="section-heading"><p className="editorial-kicker">Choose a process</p><p className="section-note">Setiap teknologi punya karakter dan kegunaan yang berbeda.</p></div>
         <div className="printing-types-grid">
           {types.map((type) => (
-            <article className="printing-type" key={type.name}>
+            <article
+              className="printing-type"
+              key={type.name}
+              role="button"
+              tabIndex={0}
+              aria-label={`Lihat detail proses ${type.name}`}
+              onClick={() => setActiveStage({ number: type.name, label: type.name, image: type.image, description: type.text })}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveStage({ number: type.name, label: type.name, image: type.image, description: type.text });
+                }
+              }}
+            >
               <div className="printing-type-image"><Image src={type.image} alt={`Contoh hasil proses ${type.name}`} fill sizes="(max-width: 760px) 100vw, 32vw" /></div>
               <div className="printing-type-copy"><p className="editorial-kicker">Process / {type.name}</p><h3>{type.name}</h3><p>{type.text}</p></div>
             </article>
