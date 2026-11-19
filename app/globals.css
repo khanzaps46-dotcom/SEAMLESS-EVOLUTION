@@ -125,7 +125,6 @@ a { color: inherit; }
 .stories-heading > p { max-width: 250px; padding-bottom: 5px; font-size: var(--font-body-size); }
 .stories-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.7vw; row-gap: 40px; padding-top: 24px; }
 .story-tile--wide, .story-tile--narrow, .story-tile--offset { grid-column: auto; width: auto; margin: 0; }
-.story-tile-link { display: block; text-decoration: none; }
 .story-tile figure { position: relative; aspect-ratio: .83; overflow: hidden; background: #252525; }
 .story-tile--narrow figure, .story-tile--offset figure { aspect-ratio: .83; }
 .story-tile figure img { filter: none; }
@@ -179,7 +178,7 @@ a { color: inherit; }
 .process-visual { position: relative; aspect-ratio: 1; overflow: hidden; background: #d5d9d9; }
 .process-visual img { object-fit: contain; filter: none; }
 .process-open { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; transition: background .2s; }
-.process-open:hover { background: rgb(0 0 0 / 8%); }
+.process-open:hover, .process-open:focus-visible, .process-open:active { background: rgb(0 0 0 / 32%); }
 .process-open:focus-visible { outline: 2px solid #46a3dc; outline-offset: -5px; }
 .process-modal-close:focus-visible { outline: 2px solid #46a3dc; outline-offset: 3px; }
 .process-step > p { margin: 11px 0 0; font-size: 14px; font-weight: 600; }
@@ -197,6 +196,8 @@ a { color: inherit; }
 .printing-type:hover { box-shadow: 0 8px 22px rgb(32 36 33 / 12%); }
 .printing-type:focus-visible { outline: 2px solid #46a3dc; outline-offset: 4px; }
 .printing-type-image { position: relative; aspect-ratio: 48 / 25; overflow: hidden; background: #d5d9d9; }
+.printing-type-image::after { position: absolute; z-index: 1; inset: 0; background: rgb(0 0 0 / 32%); content: ""; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.printing-type:hover .printing-type-image::after, .printing-type:focus-visible .printing-type-image::after, .printing-type:active .printing-type-image::after { opacity: 1; }
 .printing-type-copy { padding: 20px; }
 .printing-type-copy h3 { margin: 8px 0; font-size: 28px; }
 .printing-type-copy > p:last-child { margin-bottom: 0; font-size: 14px; }

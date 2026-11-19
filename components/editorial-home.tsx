@@ -14,7 +14,6 @@ const stories = [
     description: "Eksperimen kecil yang membuka jalan bagi bentuk dan fungsi baru.",
     image: "/assets/story-material-study.jpeg",
     alt: "Gulungan filamen merah, putih, dan hijau",
-    href: "/3d-printing",
     className: "story-tile story-tile--wide",
   },
   {
@@ -22,9 +21,8 @@ const stories = [
     category: "OBJECTS",
     title: "Keberanian untuk memulai.",
     description: "Wujudkan produk impianmu.",
-    image: "/assets/story-made-to-grow.jpeg",
-    alt: "Vas beralur hasil cetak 3D",
-    href: "/create",
+    image: "/assets/story-objects.jpeg",
+    alt: "Nozzle printer 3D sedang membentuk vas beralur",
     className: "story-tile story-tile--narrow",
   },
   {
@@ -32,9 +30,8 @@ const stories = [
     category: "MADE TO GROW",
     title: "Ruang untuk berkembang.",
     description: "Membangun produk, keterampilan, dan kemungkinan bersama.",
-    image: "/assets/story-objects.jpeg",
-    alt: "Nozzle printer 3D",
-    href: "/opportunities",
+    image: "/assets/story-made-to-grow.jpeg",
+    alt: "Tampilan model 3D pada layar printer Bambu Lab",
     className: "story-tile story-tile--offset",
   },
 ];
@@ -136,13 +133,11 @@ export default function EditorialHome() {
         <div className="stories-grid">
           {stories.map((story) => (
             <article className={story.className} key={story.number} data-editorial-reveal>
-              <a className="story-tile-link" href={story.href} aria-label={`Baca ${story.title}`}>
-                <figure data-editorial-image>
-                  <Image src={story.image} alt={story.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-editorial-parallax />
-                  <figcaption>{story.number} / {story.category}</figcaption>
-                </figure>
-                <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p></div>
-              </a>
+              <figure data-editorial-image>
+                <Image src={story.image} alt={story.alt} fill sizes="(max-width: 760px) 100vw, 50vw" data-editorial-parallax />
+                <figcaption>{story.number} / {story.category}</figcaption>
+              </figure>
+              <div className="tile-copy"><h3>{story.title}</h3><p>{story.description}</p></div>
             </article>
           ))}
         </div>
